@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------ */
+/* GENERAL STYLES */
+/* ------------------------ */
+
+body {
+  background-color: #f6f7fb;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------ */
+/* COMPONENT STYLES */
+/* ------------------------ */
+
+.container {
+  display: grid;
+  row-gap: 20px;
+}
+
+.num-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: width 3s ease;
+}
+
+.progress-two {
+  animation: progressBarTwo 1s ease 0s both;
+}
+
+.progress-three {
+  animation: progressBarThree 1s ease 0s both;
+}
+
+.progress-four {
+  animation: progressBarFour 1s ease 0s both;
+}
+
+.num-container::after {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -2;
+}
+
+.num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  color: #7a7a7a;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  padding: 12px;
+  border: 3px solid var(--line-border-empty);
+  border-radius: 50%;
+}
+
+.num.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.btn {
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--line-border-fill);
+  padding: 8px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+@keyframes progressBarTwo {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 35%;
+  }
+}
+
+@keyframes progressBarThree {
+  0% {
+    width: 35%;
+  }
+  100% {
+    width: 65%;
+  }
+}
+
+@keyframes progressBarFour {
+  0% {
+    width: 65%;
+  }
+  100% {
+    width: 100%;
+  }
+}
